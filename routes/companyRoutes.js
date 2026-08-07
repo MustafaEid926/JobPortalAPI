@@ -7,39 +7,31 @@ const companyController = require("../controllers/companyController");
 const validate = require("../middleware/validate");
 
 const {
-    createCompanySchema
+  createCompanySchema,
+  updateCompanySchema,
 } = require("../validators/companyValidator");
 
 // Create
 router.post(
-    "/",
-    validate(createCompanySchema),
-    companyController.createCompany
+  "/",
+  validate(createCompanySchema),
+  companyController.createCompany,
 );
 
 // Read All
-router.get(
-    "/",
-    companyController.getAllCompanies
-);
+router.get("/", companyController.getAllCompanies);
 
 // Read One
-router.get(
-    "/:id",
-    companyController.getCompanyById
-);
+router.get("/:id", companyController.getCompanyById);
 
 // Update
 router.put(
-    "/:id",
-    validate(createCompanySchema),
-    companyController.updateCompany
+  "/:id",
+  validate(updateCompanySchema),
+  companyController.updateCompany,
 );
 
 // Delete
-router.delete(
-    "/:id",
-    companyController.deleteCompany
-);
+router.delete("/:id", companyController.deleteCompany);
 
 module.exports = router;

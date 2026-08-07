@@ -6,38 +6,24 @@ const jobController = require("../controllers/jobController");
 
 const validate = require("../middleware/validate");
 
-const { createJobSchema } = require("../validators/jobValidator");
+const {
+  createJobSchema,
+  updateJobSchema,
+} = require("../validators/jobValidator");
 
 // Create
-router.post(
-    "/",
-    validate(createJobSchema),
-    jobController.createJob
-);
+router.post("/", validate(createJobSchema), jobController.createJob);
 
 // Get All
-router.get(
-    "/",
-    jobController.getAllJobs
-);
+router.get("/", jobController.getAllJobs);
 
 // Get By ID
-router.get(
-    "/:id",
-    jobController.getJobById
-);
+router.get("/:id", jobController.getJobById);
 
 // Update
-router.put(
-    "/:id",
-    validate(createJobSchema),
-    jobController.updateJob
-);
+router.put("/:id", validate(updateJobSchema), jobController.updateJob);
 
 // Delete
-router.delete(
-    "/:id",
-    jobController.deleteJob
-);
+router.delete("/:id", jobController.deleteJob);
 
 module.exports = router;
