@@ -15,6 +15,7 @@ const createJobSchema = Joi.object({
 
   company: Joi.string().hex().length(24).required(),
 });
+
 const updateJobSchema = Joi.object({
   title: Joi.string().min(3).max(100),
 

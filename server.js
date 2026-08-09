@@ -8,8 +8,11 @@ const connectDB = require("./config/db");
 const companyRoutes = require("./routes/companyRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 
+const applicationRoutes = require("./routes/applicationRoutes");
+
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
+
 
 const app = express();
 
@@ -23,6 +26,7 @@ app.use(express.json());
 app.use("/api/companies", companyRoutes);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/applications", applicationRoutes);
 
 app.get("/", (req, res) => {
   res.json({
